@@ -23,7 +23,7 @@ import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-import java.util.UUID;
+
 
 @Controller
 @RequestMapping("/")
@@ -68,12 +68,14 @@ public class WebsiteController {
     }
 
     @GetMapping("/links/{id}")
-    public String links(HttpServletRequest request, Model model, @PathVariable UUID id){
+    public String links(HttpServletRequest request, Model model, @PathVariable Integer id){
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<Object> entity = new HttpEntity<>(null,headers);
 
         ResponseEntity<Link[]> res = restTemplate.exchange(Utility.formatURL("/api/v1/websites/links/"+id),HttpMethod.GET, entity, Link[].class);
+        // print out the backend response
+        System.out.println("here..." + res);
 
         model.addAttribute("links", Objects.requireNonNull(res.getBody()));
 
