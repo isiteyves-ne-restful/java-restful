@@ -10,11 +10,11 @@ To start using this authentication boilerplate, you need to follow a few steps:
     * If you modified the package name, please change the swagger base controller property and replace it with your new package name
 * Install the dependencies in pom
 * Run the project
-* Visit localhost:8000/swagger-ui.html and start using the app
+* Visit localhost:5000/swagger-ui.html to view the API documentation of this app
 
 ### MODEL
 
-In this authentication boilerplate, I used a User model containing the following properties:
+In this authentication boilerplate, I used a Customer model containing the following properties:
 * Id (UUID)
 * firstName (String)
 * lastName (String)
